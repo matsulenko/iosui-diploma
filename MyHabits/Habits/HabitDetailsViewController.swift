@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HabitDetailsViewController: UIViewController {
+final class HabitDetailsViewController: UIViewController {
     
     private var habit: Habit? = nil
     private var dates: [Date] = []

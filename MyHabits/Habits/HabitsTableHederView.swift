@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HabitsTableHederView: UIView {
+final class HabitsTableHederView: UIView {
     
     private var title: UILabel = {
         let label = UILabel()

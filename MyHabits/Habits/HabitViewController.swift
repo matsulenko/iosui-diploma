@@ -7,7 +7,7 @@
  
 import UIKit
 
-class HabitViewController: UIViewController {
+final class HabitViewController: UIViewController {
     
     var onWillDismiss: (() -> Void)?
     private var habit: Habit? = nil
@@ -149,7 +149,9 @@ class HabitViewController: UIViewController {
         view.addSubview(habitTimeTitle)
         view.addSubview(habitTimeText)
         view.addSubview(pickedHabitTime)
-        view.addSubview(deleteHabitButton)
+        if habit != nil {
+            view.addSubview(deleteHabitButton)
+        }
     }
     
     private func setupView() {
@@ -352,11 +354,16 @@ class HabitViewController: UIViewController {
             pickedHabitTime.topAnchor.constraint(equalTo: habitTimeTitle.bottomAnchor, constant: defaultConstraint1),
             pickedHabitTime.leadingAnchor.constraint(equalTo: habitTimeText.trailingAnchor, constant: 0),
             pickedHabitTime.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: trailing),
-            
-            deleteHabitButton.bottomAnchor.constraint(equalTo: safeAreaGuide.bottomAnchor, constant: bottom),
-            deleteHabitButton.leadingAnchor.constraint(equalTo: safeAreaGuide.leadingAnchor, constant: leading),
-            deleteHabitButton.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: trailing),
             ])
+        
+        if habit != nil {
+            NSLayoutConstraint.activate([
+                deleteHabitButton.bottomAnchor.constraint(equalTo: safeAreaGuide.bottomAnchor, constant: bottom),
+                deleteHabitButton.leadingAnchor.constraint(equalTo: safeAreaGuide.leadingAnchor, constant: leading),
+                deleteHabitButton.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: trailing),
+            ])
+        }
+        
     }
 
 }

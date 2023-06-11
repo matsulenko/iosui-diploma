@@ -14,7 +14,7 @@
 
 import UIKit
 
-class HabitsViewController: UIViewController {
+final class HabitsViewController: UIViewController {
     
     private var data = HabitsStore.shared.habits
     private var headerView = HabitsTableHederView()
@@ -44,6 +44,7 @@ class HabitsViewController: UIViewController {
         data = HabitsStore.shared.habits
         setProgress()
         tableView.reloadData()
+        setupView()
     }
 
     private func addSubviews() {

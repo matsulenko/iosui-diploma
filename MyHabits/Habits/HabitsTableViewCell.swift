@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HabitsTableViewCell: UITableViewCell {
+final class HabitsTableViewCell: UITableViewCell {
     
     static let id = "HabitsTableViewCell"
     
